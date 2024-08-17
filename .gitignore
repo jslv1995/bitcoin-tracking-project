@@ -5,6 +5,9 @@
 __pycache__/
 *.pyc
 
+# Ignore MacOS files.
+.DS_Store
+
 # Ignore environment files
 .env 
 
