@@ -1,36 +1,54 @@
-# Bitcoin Tracking Project
+# Bitcoin and Stock Market Analysis Project
 
 ## Overview
-This project uses Python to automate the retrieval, processing, and analysis of Bitcoin price data. It uses APIs to pull real-time data, perform analysis, and visualize trends. 
+This project aims to analyze the relationship between the Bitcoin holdings of public companies and their stock performance over time. Using data from the CoinGecko API and Alpha Vantage API, the project retrieves information about companies holding Bitcoin and their corresponding historical stock data. The goal is to assess how Bitcoin holdings might correlate with or impact stock performance over different periods, such as 1, 5, and 10 years.
 
-## Features
-- Real-time Data Retrieval: Fetches Bitcoin price and trading volume data.
-- Historical Analysis: Analyzes historical prices and trading volumes.
-- Data Visualization: Uses pandas and matplotlib for visual representation.
+## Project Goals:
+- Data Retrieval:
+    - Use the CoinGecko API to fetch data on public companies holding Bitcoin, including the amount of Bitcoin each company holds.
+    - Utilize the Alpha Vantage API to retrieve historical stock data (monthly) for the top companies identified from the CoinGecko data.
 
-## Libraries Used
-- pandas: Data manipulation and analysis.
-- matplotlib: Data visualization.
-- requests: API calls.
+- Data Processing and Analysis:
+    - Use pandas to clean, process, and merge the data from CoinGecko and Alpha Vantage.
+    - Analyze the stock performance of these companies over the past 5 years and explore potential correlations between Bitcoin holdings and stock price trends.
+    - Investigate how the stock prices of these companies have changed in relation to significant fluctuations in Bitcoin's market value.
 
-## Setup Instructions
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/jslv1995/bitcoin-tracking-project.git
-    cd bitcoin-tracking-project
+- Data Visualization:
+    - Create visualizations using matplotlib or plotly to illustrate trends, correlations, and key insights derived from the data.
+    - Provide clear, informative charts that compare Bitcoin holdings with stock performance over time.
 
-2. Activate your virtual environment:
-    source .venv/bin/activate
+## Project Structure
+- src/
+    - main.py: *in development*
+    - alphavantage_get_data.py: Fetches monthly historical stock data for public companies using the Alpha Vantage API.
+    - coingecko_get_data.py: Retrieves data on public companies holding Bitcoin from the CoinGecko API.
 
-3. Install the required packages:
-    pip install -r requirements.txt
+- data/ (not yet included in the repository)
+    - companies_with_btc.json: Stores the retrieved data from CoinGecko, detailing companies and their Bitcoin holdings.
+    - stock_data/: Directory where individual stock data files are saved, one for each company.
 
-4. Run the script:
-    python main.py
+- .env (not included in the repository)
+    - Stores API keys required for accessing the CoinGecko and Alpha Vantage APIs.
+
+## Getting Started:
+- You'll need:
+    - Python 3.6+
+    - pip (install -r requirements.txt)
+    - API Keys:
+        - Sign up for a free CoinGecko API Key.
+        - Sign up for a free Alpha Vantage API Key.
+    - Create your .env file with your new API keys:
+        - ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key
+        - COIN_GECKO_API_KEY=your_coin_gecko_api_key
 
 ## Future Enhancements
+- Integrate pandas to further analyze data
+- Integrate matplotlib to visualize data
+- Implement the data analysis and visualization components using pandas for data processing.
 - News and Social Media Integration: Correlate news feeds with Bitcoin price movements.
-- Machine Learning: Predict future prices using historical data, news, and social media feeds.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Contact
-For inquiries, please contact John Lewis.
+For questions or collaboration, feel free to contact John Lewis.
