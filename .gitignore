@@ -1,5 +1,9 @@
-# Ignore virtual environment.
-.venv/
+# Ignore environment and virtual environment.
+.env
+.venv/ 
+
+# Ignore data files
+data/
 
 # Ignore Python cache files.
 __pycache__/
@@ -7,9 +11,3 @@ __pycache__/
 
 # Ignore MacOS files.
 .DS_Store
-
-# Ignore environment files
-.env 
-
-# Ignore any other unnecessary files
-*.log
