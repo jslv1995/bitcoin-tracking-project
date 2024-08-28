@@ -2,7 +2,12 @@
 .env
 .venv/ 
 
-# Ignore data files
+# Ignore local files.
+local_files/
+
+# Ignore data files.
+data/companies_with_btc.json
+data/stock_data/
 data/
 
 # Ignore Python cache files.
