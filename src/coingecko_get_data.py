@@ -39,7 +39,7 @@ def get_companies_holding_btc():
     # Convert to JSON
     data = response.json()
     # Store JSON data in a file
-    filename = 'data/crypto_data/companies_with_btc.json'
+    filename = 'data/for_analysis/companies_with_btc.json'
     # Check if filename exists and print message
     if os.path.exists(filename):
         print(f"File: '{filename}' already exists.. Updating file.")
@@ -50,3 +50,4 @@ def get_companies_holding_btc():
         json.dump(data, json_file, indent=4) 
     # Print success message
     print(f"Data successfully saved to '{filename}'!")
+    

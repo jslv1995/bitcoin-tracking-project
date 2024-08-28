@@ -43,7 +43,7 @@ def get_stock_data(symbol):
 
     if "Monthly Time Series" in data:
         # Store JSON data in a file
-        filename = f"data/stock_data/{symbol}.json"
+        filename = f"data/for_analysis/{symbol}_price_history.json"
         # Check if file exists and print status message
         if os.path.exists(filename):
             print(f"File: '{filename}' already exists.. Updating file.")
@@ -60,43 +60,46 @@ def get_stock_data(symbol):
         print(f"No data found for symbol: {symbol}")
         return None
 
-def get_btc_data():
-    """Return historical monthly data for Bitcoin."""
-    # Make sure API key is working
-    api_key = load_api_key()
-    if not api_key:
-        return None  # Exit if API key is not loaded
+### !!! This Bitcoin data only goes back to 2023!!! ###
+### Not needed at this time.. Comment out
+# def get_btc_data():
+#     """Return historical monthly data for Bitcoin.
+#     !!! This data only goes back to 2023!!!"""
+#     # Make sure API key is working
+#     api_key = load_api_key()
+#     if not api_key:
+#         return None  # Exit if API key is not loaded
 
-    # Retrieve BTC data
-    url = "https://www.alphavantage.co/query"
-    params = {
-        "function" : "DIGITAL_CURRENCY_MONTHLY",
-        "symbol" : "BTC",
-        "market" : "USD",
-        "apikey" : api_key
-        }
+#     # Retrieve BTC data
+#     url = "https://www.alphavantage.co/query"
+#     params = {
+#         "function" : "DIGITAL_CURRENCY_MONTHLY",
+#         "symbol" : "BTC",
+#         "market" : "USD",
+#         "apikey" : api_key
+#         }
     
-    # Make the API request
-    response = requests.get(url, params=params)
+#     # Make the API request
+#     response = requests.get(url, params=params)
 
-    # Check the status code
-    if response.status_code != 200:
-        # Print if error with connection to API
-        print(f"Error: {response.status_code}")
-        return None
+#     # Check the status code
+#     if response.status_code != 200:
+#         # Print if error with connection to API
+#         print(f"Error: {response.status_code}")
+#         return None
 
-    # Convert to JSON
-    data = response.json()
-    filename = "data/crypto_data/BTC_price_history.json"
+#     # Convert to JSON
+#     data = response.json()
+#     filename = "data/for_analysis/BTC_price_history.json"
 
-    # Check if file exists and print status message
-    if os.path.exists(filename):
-        print(f"File: '{filename}' already exists.. Updating file.")
-    else:
-        print(f"Saving '{filename}' as new file.")
+#     # Check if file exists and print status message
+#     if os.path.exists(filename):
+#         print(f"File: '{filename}' already exists.. Updating file.")
+#     else:
+#         print(f"Saving '{filename}' as new file.")
 
-    # Save the file
-    with open(filename, "w") as json_file:
-        json.dump(data, json_file, indent=4)
-    print(f"Data successfully saved to '{filename}'!")
-    return data  
+#     # Save the file
+#     with open(filename, "w") as json_file:
+#         json.dump(data, json_file, indent=4)
+#     print(f"Data successfully saved to '{filename}'!")
+#     return data  
